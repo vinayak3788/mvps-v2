@@ -1,0 +1,20 @@
+modules = ["nodejs-20", "web"]
+run = "npm run dev"
+
+# disable Replit’s default CSP so our own <meta> policy can apply
+content-security-policy = ""
+
+[nix]
+channel = "stable-24_05"
+packages = ["sqlite-interactive", "psmisc", "imagemagick_light", "lsof", "tree"]
+
+[deployment]
+run = ["sh", "-c", "npm run dev"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+[[ports]]
+localPort = 8080
+externalPort = 8080
